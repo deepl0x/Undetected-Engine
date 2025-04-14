@@ -1,0 +1,152 @@
+Kod örneği turkmmo forumundan alınıp düz isimli undetected hali daha gelişmiş belirlediğiniz mse göre değişmekte,
+Kullanılan sunucularda bir sorumluluk kabul etmemekle beraber üstüme atılan suçlarda çok sikimde değil.
+
+Güncel olarak Rascal anticheat & runik anticheat & x86 anticheat hariç çoğu anticheatti bypasslar,
+Prefesyonel bir bypass yöntemi değildir yakalanmanız geçseniz bile kolaydır profesyonel bir işin için discord üzerinden ulaşmanız gerek .
+Özel bypass yöntemleri ile sıfır ban riski sunuyorum, yani embesil olup burdaki kodu kullanarak millete satmaya çalışmayın banlanırsınız,
+Sadece vslik sunucularda öneriyorum mal olmayın.
+Profesyonel Anti cheat bypass için iletişim dc : eserimiz 
+
+
+
+  local captions = {
+    "D3XM@12!",
+    "5!8@9$2#",
+    "@2!3A4#",
+    "1$2#D!3",
+    "7@5%M@1!",
+    "4A6#X8@!",
+    "9!0D#12",
+    "@7X5#6Z!",
+    "9M@6$B!",
+    "2!Z9Q@5!",
+    "8#7P1@X",
+    "5V@9!R3",
+    "6D$0F#9",
+    "1B!X3@A2",
+    "8A!7D2#",
+    "6Z9$P1!",
+    "3C4!@5X",
+    "1$8!M7A",
+    "9!Q7V1#",
+    "4@6B1M!",
+    "2R3D9@#",
+    "8#5Y1X0",
+    "7B2@M6!",
+    "9#Z1D3",
+    "0!5X8@2",
+    "4!Q7M3",
+    "8R1!B9@",
+    "2$M5Y1",
+    "7A0P@2",
+    "3X5V8R@",
+    "9@B2X1!",
+    "4!C7P9",
+    "0Q@9!7M",
+    "5!B4A1X",
+    "8M3V6@",
+    "2Y7#1P",
+    "6!R0X5",
+    "1A3M2@!",
+    "4B!7P6",
+    "9!Q1D5",
+    "2X@8P3!",
+    "6Z5M1#",
+    "4P@1B8",
+    "9A7@5!",
+    "3B1D9X",
+    "5@0M2P!",
+    "8X6A3Y",
+    "2Z9P@4",
+    "6!X7D1",
+    "1Q2@8B!",
+    "4Y9R3X",
+    "8@5M0P!",
+    "7B1!C9",
+    "3D4@9M",
+    "5X7P1!",
+    "0!Z3M2",
+    "6Q9@8P",
+    "1R4D7X!",
+    "9!C0P1",
+    "8@7X2Y",
+    "5A4!X3",
+    "2D9M@1!",
+    "7Q6B0P",
+    "4@Y1M3",
+    "9P5X0D",
+    "2R1B9!",
+    "8A3@0P",
+    "5X7!B2",
+    "1!D9M4",
+    "3Q5@7X",
+    "6M1R2@!",
+    "0X8B7Y",
+    "4P1D9@",
+    "9!X6C3",
+    "2B0@P1",
+    "8D7X4!",
+    "5@Y9M2",
+    "1B6!3P",
+    "3X7Q1M",
+    "9P2@8X!",
+    "6R4D0B",
+    "1@Y9M3",
+    "7Q8X5P!",
+    "0!D1B9",
+    "3P7@X1",
+    "9!C2M4",
+    "5R8D1@",
+    "4M3Y0P",
+    "1X5D9!P",
+    "8@7B2Y",
+    "3X4R1P",
+    "9!M5Y2",
+    "2D0X8!",
+    "6B3P7@",
+    "4@1X9D" -- istediğiniz kelimeleri eklediğim gibi uygun ekleyebilirsiniz
+}
+
+
+function getRandomCaption()
+    return captions[math.random(#captions)]
+end
+
+
+function renameComponents(c)
+    if c.Component then
+        for i = 0, c.ComponentCount - 1 do
+            renameComponents(c.Component[i]) 
+        end
+    end
+
+    if c.Caption then
+        c.Caption = getRandomCaption()
+    end
+end
+
+r
+function updateCaptions()
+    for i = 0, getFormCount() - 1 do
+        local form = getForm(i)
+        if form then
+            renameComponents(form)
+            form.Caption = getRandomCaption()
+        end
+    end
+end
+
+
+registerFormAddNotification(function(form)
+    renameComponents(form) 
+    form.Caption = getRandomCaption() 
+end)
+
+-- Zamanlayıcı ile düzenli güncelleme
+local timer = createTimer()
+timer.Interval = 500 -- 0.5 saniyede bir çalışır fakat 5000 yapmanızı öneriyorum bu çok hızlı sorun yaratır
+timer.OnTimer = function()
+    updateCaptions()
+end
+
+Dediğim gibi mal olmayın satmaya çalışmayın gelişmiş anticheatli serverler için discorddan yazın
